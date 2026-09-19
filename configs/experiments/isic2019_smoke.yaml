@@ -1,0 +1,35 @@
+# Fast correctness check for the official ISIC 2019 release (Dataset_large/).
+# Purpose: prove the class-foldered loader + partition + real CNN training +
+# on-chain commit + reputation + aggregation + finalize all work together on
+# the REAL data before committing to the multi-hour full run. NOT a result to
+# report -- 300 images and an untrained tiny CNN will not produce a meaningful
+# accuracy number. Use isic2019.yaml for that.
+seed: 0
+device: auto
+data:
+  root: Dataset_large
+  image_size: 128
+  val_fraction: 0.2
+  max_samples: 300
+partition:
+  strategy: dirichlet
+  alpha: 0.5
+  num_clients: 3
+model:
+  model_name: smallcnn
+  pretrained: false
+  lr: 0.01
+  batch_size: 16
+  local_epochs: 1
+  num_workers: 0
+attack:
+  name: none
+reputation:
+  beta: 0.8
+  threshold_mode: relative
+dp:
+  enabled: false
+simulation:
+  num_rounds: 3
+  aggregator: reputation
+  results_dir: results/isic2019_smoke

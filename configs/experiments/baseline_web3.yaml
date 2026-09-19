@@ -1,0 +1,53 @@
+# Same protocol as baseline.yaml, but against a REAL local Ethereum node
+# (Hardhat) instead of the MockChain simulation -- proves the whole FL loop
+# actually executes as on-chain transactions with real, measured gas.
+#
+# Before running:
+#   npx hardhat node > /tmp/hardhat_node.log 2>&1 &
+#   npx hardhat run scripts/deploy.js --network localhost
+# (both one-time per node restart -- the node's state resets when it's killed)
+seed: 0
+
+data:
+  name: synthetic
+  num_classes: 4
+  dim: 30
+  n: 3000
+  separation: 1.1
+  noise: 1.6
+
+partition:
+  strategy: dirichlet
+  alpha: 0.5
+  num_clients: 5              # well under the 19 non-admin funded accounts
+
+model:
+  hidden_dim: 32
+  lr: 0.1
+  batch_size: 32
+  local_epochs: 2
+
+attack:
+  name: none
+  malicious_fraction: 0.0
+
+reputation:
+  beta: 0.8
+  alpha_cos: 0.7
+  trust_threshold: 0.15
+  threshold_mode: relative
+  relative_k: 1.5
+
+dp:
+  enabled: false
+
+simulation:
+  num_rounds: 5                # short: this is a real-chain PROOF run, scale up once verified
+  aggregator: reputation
+  results_dir: results/baseline_web3
+  chain_backend: web3
+  chain_kwargs:
+    rpc_url: "http://127.0.0.1:8545"
+    addresses_path: "artifacts/deploy/addresses.json"
+    artifacts_dir: "artifacts/contracts"
+    admin_index: 0

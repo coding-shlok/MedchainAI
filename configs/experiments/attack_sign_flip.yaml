@@ -1,0 +1,17 @@
+# Update-space attack, defence-unaware. Verified: attackers are flagged and
+# excluded from round 0 (see rounds_to_detect in the output), but reputation
+# can drift back above threshold by round ~25-30 as the attack's relative
+# signal fades near convergence -- check BOTH final-snapshot and cumulative
+# detection metrics in the output, not just the final-round one. See
+# docs/EXPERIMENT_MATRIX.md "Table 2" for why.
+seed: 0
+data: {name: synthetic, num_classes: 4, dim: 30, n: 3000, separation: 1.1, noise: 1.6}
+partition: {strategy: dirichlet, alpha: 0.5, num_clients: 10}
+model: {hidden_dim: 32, lr: 0.1, batch_size: 32, local_epochs: 2}
+attack:
+  name: sign_flip
+  malicious_fraction: 0.3
+  start_round: 0
+reputation: {beta: 0.7, alpha_cos: 0.7, trust_threshold: 0.15, threshold_mode: relative, relative_k: 1.5}
+dp: {enabled: false}
+simulation: {num_rounds: 30, aggregator: reputation, results_dir: results/attack_sign_flip}

@@ -1,0 +1,34 @@
+# Fast correctness check against the uploaded Dataset/ folder (9-class, ~2.4k
+# image, pre-split Train/Test skin lesion set -- see datasets.py's
+# isic_folder_torch_datasets docstring for what this is and isn't). Proves
+# partition -> real CNN training -> on-chain commit -> reputation ->
+# aggregation -> finalize runs end-to-end in well under a minute. Not a result
+# to report -- use isic_skin9.yaml for that.
+seed: 0
+device: auto
+data:
+  name: isic_folder
+  root: Dataset
+  image_size: 96
+  max_samples: 120
+partition:
+  strategy: dirichlet
+  alpha: 0.5
+  num_clients: 3
+model:
+  model_name: smallcnn
+  pretrained: false
+  lr: 0.01
+  batch_size: 16
+  local_epochs: 1
+attack:
+  name: none
+reputation:
+  beta: 0.8
+  threshold_mode: relative
+dp:
+  enabled: false
+simulation:
+  num_rounds: 3
+  aggregator: reputation
+  results_dir: results/isic_skin9_smoke

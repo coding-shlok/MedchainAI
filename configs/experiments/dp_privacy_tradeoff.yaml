@@ -1,0 +1,14 @@
+# The headline experiment: DP noise vs detection accuracy.
+# Sweep noise_multiplier via run_dp_sweep.py; this file is the single-point config.
+seed: 0
+data: {name: synthetic, num_classes: 4, dim: 30, n: 3000, separation: 1.1, noise: 1.6}
+partition: {strategy: dirichlet, alpha: 0.5, num_clients: 10}
+model: {hidden_dim: 32, lr: 0.1, batch_size: 32, local_epochs: 2}
+attack: {name: sign_flip, malicious_fraction: 0.3, start_round: 0}
+reputation: {beta: 0.85, alpha_cos: 0.7, trust_threshold: 0.15, threshold_mode: relative, relative_k: 1.5}
+dp:
+  enabled: true
+  clip_norm: 1.0
+  noise_multiplier: 1.0
+  delta: 0.00001
+simulation: {num_rounds: 30, aggregator: reputation, results_dir: results/dp_tradeoff}

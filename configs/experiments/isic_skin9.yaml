@@ -1,0 +1,42 @@
+# The real run against the uploaded Dataset/ folder: 9-class skin lesion
+# classification, ResNet-18 (pretrained on ImageNet), federated across 5
+# simulated hospitals, through the full FL + reputation + mock-chain pipeline.
+#
+# This is a genuinely small dataset (~2.2k train images total, so a few
+# hundred per hospital once split 5 ways) -- that is a real limitation to
+# state plainly in the presentation, not something to paper over: fewer
+# images per class than the official ISIC 2019 release, and it is NOT that
+# release (see datasets.py's isic_folder_torch_datasets docstring for the
+# taxonomy difference). Treat this as a working proof-of-concept run, not a
+# publication-scale result.
+seed: 0
+device: auto
+data:
+  name: isic_folder
+  root: Dataset
+  image_size: 224
+partition:
+  strategy: dirichlet
+  alpha: 0.5                    # report this alongside every accuracy number
+  num_clients: 5
+model:
+  model_name: resnet18
+  pretrained: true
+  lr: 0.001
+  momentum: 0.9
+  weight_decay: 0.0001
+  batch_size: 16
+  local_epochs: 1
+  num_workers: 2
+  grad_clip: 5.0
+attack:
+  name: none                    # try label_flip once the clean run looks right
+reputation:
+  beta: 0.8
+  threshold_mode: relative
+dp:
+  enabled: false
+simulation:
+  num_rounds: 20
+  aggregator: reputation
+  results_dir: results/isic_skin9

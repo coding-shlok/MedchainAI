@@ -1,0 +1,47 @@
+# The real paper-scale run: official ISIC 2019 (25,331 images, 8 classes),
+# ResNet-18 (pretrained), federated across 5 simulated hospitals, through the
+# full FL + reputation + mock-chain pipeline.
+#
+# Carries forward what the isic_skin9 ceiling diagnostic established: Adam +
+# class-balanced loss measurably beat plain SGD + unweighted loss on this kind
+# of imbalanced dermoscopy data. With 11x more images than that diagnostic
+# (and far better minority-class counts -- e.g. DF 239 vs 95, VASC 253 vs 139),
+# expect a real, meaningful jump over the ~52-59% ceiling seen there, though
+# there is no guarantee it clears any particular target -- run it and read the
+# number rather than assuming one.
+#
+# RUN isic2019_smoke.yaml FIRST if you haven't already -- it proves the loader
+# and pipeline work against Dataset_large/ in under a minute.
+seed: 0
+device: auto
+data:
+  root: Dataset_large
+  image_size: 224
+  val_fraction: 0.2
+  # max_samples intentionally omitted -- use the full 25,331 images
+partition:
+  strategy: dirichlet
+  alpha: 0.5                    # report this alongside every accuracy number
+  num_clients: 5
+model:
+  model_name: resnet18
+  pretrained: true
+  optimizer: adam
+  lr: 0.0001
+  weight_decay: 0.0001
+  batch_size: 32
+  local_epochs: 1
+  num_workers: 2
+  grad_clip: 5.0
+  balanced_loss: true
+attack:
+  name: none                    # try label_flip once the clean run looks right
+reputation:
+  beta: 0.8
+  threshold_mode: relative
+dp:
+  enabled: false
+simulation:
+  num_rounds: 20
+  aggregator: reputation
+  results_dir: results/isic2019

@@ -1,0 +1,41 @@
+# ViT-B/16 on binary malignant-vs-benign classification
+# Full ISIC 2019 (25,331 images), federated across 5 hospitals
+#
+# ViT (Vision Transformer) is state-of-the-art on medical imaging tasks.
+# This is the best shot at breaking 90% accuracy on this binary framing.
+# Expect slower per-round than EfficientNet-B0 due to larger attention
+# matrices, but accuracy should justify it on GPU (would thrash on Mac).
+seed: 0
+device: auto
+data:
+  root: Dataset_large
+  image_size: 224
+  val_fraction: 0.2
+  binary: true
+partition:
+  strategy: dirichlet
+  alpha: 0.5
+  num_clients: 5
+model:
+  model_name: vit_b_16
+  pretrained: true
+  optimizer: adam
+  lr: 0.001
+  weight_decay: 0.0001
+  batch_size: 16
+  local_epochs: 3
+  num_workers: 0
+  grad_clip: 5.0
+  balanced_loss: true
+  weighted_sampler: false
+attack:
+  name: none
+reputation:
+  beta: 0.8
+  threshold_mode: relative
+dp:
+  enabled: false
+simulation:
+  num_rounds: 50
+  aggregator: reputation
+  results_dir: results/isic2019_binary_vit_b16

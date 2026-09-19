@@ -1,0 +1,38 @@
+# NOT a hospital-realism config -- a diagnostic. Near-IID partition (so
+# non-IID federation isn't confounding the answer), class-balanced loss, Adam,
+# and more local epochs, to answer one question: what accuracy ceiling is
+# actually reachable on this ~2.2k-image, 9-class, imbalanced dataset with a
+# pretrained ResNet-18, before spending more compute chasing federated
+# realism. Compare its result to isic_skin9.yaml's 51.7% baseline.
+seed: 0
+device: auto
+data:
+  name: isic_folder
+  root: Dataset
+  image_size: 224
+partition:
+  strategy: dirichlet
+  alpha: 10.0                   # high alpha ~= near-IID, isolates model capacity from skew
+  num_clients: 3
+model:
+  model_name: resnet18
+  pretrained: true
+  optimizer: adam
+  lr: 0.0001
+  weight_decay: 0.0001
+  batch_size: 16
+  local_epochs: 3
+  num_workers: 2
+  grad_clip: 5.0
+  balanced_loss: true
+attack:
+  name: none
+reputation:
+  beta: 0.8
+  threshold_mode: relative
+dp:
+  enabled: false
+simulation:
+  num_rounds: 15
+  aggregator: reputation
+  results_dir: results/isic_skin9_ceiling

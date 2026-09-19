@@ -1,0 +1,70 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Large files (keep code, exclude checkpoints/cache)
+results/**/*.pth
+results/**/*.pt
+*.pyc
+.cache/
+
+# Node/npm
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+
+# Hardhat
+artifacts/
+cache/
+.env
+.env.local
+
+# Temporary
+.tmp/
+*.tmp
+scratch/
+
+# Data (if large)
+data/
+Dataset_large/
+*.zip
+*.tar.gz

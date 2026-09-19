@@ -1,0 +1,35 @@
+# Fast correctness check: EfficientNet-B0 + binary malignant/benign labels,
+# against the real Dataset_large/ files. Proves the new binary loader and the
+# efficientnet_b0 backbone work together end-to-end before the full run.
+seed: 0
+device: auto
+data:
+  root: Dataset_large
+  image_size: 128
+  val_fraction: 0.2
+  max_samples: 300
+  binary: true
+partition:
+  strategy: dirichlet
+  alpha: 0.5
+  num_clients: 3
+model:
+  model_name: efficientnet_b0
+  pretrained: true
+  optimizer: adam
+  lr: 0.0001
+  batch_size: 16
+  local_epochs: 1
+  num_workers: 0
+  balanced_loss: true
+attack:
+  name: none
+reputation:
+  beta: 0.8
+  threshold_mode: relative
+dp:
+  enabled: false
+simulation:
+  num_rounds: 2
+  aggregator: reputation
+  results_dir: results/isic2019_binary_smoke

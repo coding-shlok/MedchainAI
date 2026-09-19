@@ -1,0 +1,42 @@
+# Sanity-check config: dev-tier synthetic data, no attack, reputation aggregator.
+# Runs in seconds. Use this to confirm the pipeline works before spending GPU
+# time on ISIC. Swap data.name to medmnist:pathmnist or torch/ISIC for real runs.
+seed: 0
+
+data:
+  name: synthetic
+  num_classes: 4
+  dim: 30
+  n: 3000
+  separation: 1.1
+  noise: 1.6
+
+partition:
+  strategy: dirichlet
+  alpha: 0.5
+  num_clients: 10
+
+model:
+  hidden_dim: 32
+  lr: 0.1
+  batch_size: 32
+  local_epochs: 2
+
+attack:
+  name: none
+  malicious_fraction: 0.0
+
+reputation:
+  beta: 0.8
+  alpha_cos: 0.7
+  trust_threshold: 0.15
+  threshold_mode: relative
+  relative_k: 1.5
+
+dp:
+  enabled: false
+
+simulation:
+  num_rounds: 30
+  aggregator: reputation
+  results_dir: results/baseline

@@ -1,0 +1,24 @@
+seed: 0
+data:
+  name: medmnist:pathmnist    # 28x28 medical images, 9 classes
+  size: 28
+partition:
+  strategy: dirichlet
+  alpha: 0.5
+  num_clients: 10
+model:
+  hidden_dim: 32
+  lr: 0.1
+  batch_size: 32
+  local_epochs: 2
+attack:
+  name: none
+reputation:
+  beta: 0.8
+  threshold_mode: relative
+dp:
+  enabled: false
+simulation:
+  num_rounds: 20              # SHORT for fast iteration
+  aggregator: reputation
+  results_dir: results/medmnist_dev

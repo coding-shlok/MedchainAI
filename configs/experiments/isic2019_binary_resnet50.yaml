@@ -1,0 +1,43 @@
+# Same binary malignant-vs-benign task and hyperparameters as
+# isic2019_binary.yaml, swapping EfficientNet-B0 (80.58% acc / 0.7785 F1) for
+# ResNet-50 -- untried backbone+task combination. ResNet-50 has ~2.3x the
+# compute of ResNet-18 but, unlike EfficientNet-B0, uses plain convolutions
+# (which MPS handles well), so per-round time should scale with compute
+# roughly predictably (measured smoke test + FLOPs estimate: ~18-20 min/round,
+# ~6-6.5h total) rather than the depthwise-conv penalty EfficientNet-B0 hit.
+seed: 0
+device: auto
+data:
+  root: Dataset_large
+  image_size: 224
+  val_fraction: 0.2
+  binary: true
+partition:
+  strategy: dirichlet
+  alpha: 0.5
+  num_clients: 5
+model:
+  model_name: resnet50
+  pretrained: true
+  optimizer: adam
+  lr: 0.0001
+  weight_decay: 0.0001
+  batch_size: 32
+  local_epochs: 1
+  num_workers: 2
+  grad_clip: 5.0
+  balanced_loss: true
+  weighted_sampler: false
+  lr_schedule: cosine
+  lr_decay_rounds: 20
+attack:
+  name: none
+reputation:
+  beta: 0.8
+  threshold_mode: relative
+dp:
+  enabled: false
+simulation:
+  num_rounds: 20
+  aggregator: reputation
+  results_dir: results/isic2019_binary_resnet50

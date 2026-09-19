@@ -1,0 +1,50 @@
+# Second-pass ISIC 2019 run: adds LR cosine decay and a weighted sampler on
+# top of the first run's Adam + class-balanced loss.
+#
+# Why: the first run (isic2019.yaml, results/isic2019/) plateaued at 70-72%
+# from round 7 through round 19 -- flat, not still climbing. That is the
+# signature of a constant LR that stopped making progress, not a hard data
+# ceiling. This run decays LR to ~0 over the full run and adds oversampling
+# of minority classes (balanced_loss only reweights their gradient when seen;
+# weighted_sampler makes them show up more often in the first place).
+#
+# Compare its final number to:
+#   - results/isic2019/metrics.json          (first run: 71.5% federated)
+#   - results/centralized_ceiling/history.json (non-federated ceiling, same backbone)
+# That three-way comparison is the actual paper table.
+seed: 0
+device: auto
+data:
+  root: Dataset_large
+  image_size: 224
+  val_fraction: 0.2
+partition:
+  strategy: dirichlet
+  alpha: 0.5
+  num_clients: 5
+model:
+  model_name: resnet18
+  pretrained: true
+  optimizer: adam
+  lr: 0.0001
+  weight_decay: 0.0001
+  batch_size: 32
+  local_epochs: 1
+  num_workers: 2
+  grad_clip: 5.0
+  balanced_loss: true
+  weighted_sampler: false       # the centralized diagnostic showed this trades raw accuracy
+                                 # for macro-F1 -- the wrong trade when accuracy is the target
+  lr_schedule: cosine
+  lr_decay_rounds: 30           # must match simulation.num_rounds below
+attack:
+  name: none
+reputation:
+  beta: 0.8
+  threshold_mode: relative
+dp:
+  enabled: false
+simulation:
+  num_rounds: 30
+  aggregator: reputation
+  results_dir: results/isic2019_v2

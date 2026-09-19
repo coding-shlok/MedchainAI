@@ -1,0 +1,48 @@
+# The binary malignant-vs-benign run: EfficientNet-B0, full official ISIC
+# 2019 (25,331 images), federated across 5 hospitals.
+#
+# THIS IS A DIFFERENT TASK from isic2019.yaml / isic2019_v2.yaml (8-class
+# fine-grained diagnosis, 71.5%/70.4% accuracy there) -- not an improved
+# version of the same benchmark. Report both numbers side by side, never as
+# "accuracy went up." Malignant = MEL/BCC/SCC, benign = everything else
+# (including AK, a judgment call -- see MALIGNANT_CLASSES in datasets.py).
+#
+# Untried levers going into this run: EfficientNet-B0 instead of ResNet-18
+# (smaller, often stronger on transfer learning), and a genuinely easier task
+# (2-way vs 8-way, ~67/33 class balance instead of severe 9-way skew).
+seed: 0
+device: auto
+data:
+  root: Dataset_large
+  image_size: 224
+  val_fraction: 0.2
+  binary: true
+partition:
+  strategy: dirichlet
+  alpha: 0.5
+  num_clients: 5
+model:
+  model_name: efficientnet_b0
+  pretrained: true
+  optimizer: adam
+  lr: 0.0001
+  weight_decay: 0.0001
+  batch_size: 32
+  local_epochs: 1
+  num_workers: 2
+  grad_clip: 5.0
+  balanced_loss: true
+  weighted_sampler: false       # learned from isic2019_v2: this trades accuracy for macro-F1
+  lr_schedule: cosine
+  lr_decay_rounds: 20           # must match simulation.num_rounds below
+attack:
+  name: none
+reputation:
+  beta: 0.8
+  threshold_mode: relative
+dp:
+  enabled: false
+simulation:
+  num_rounds: 20
+  aggregator: reputation
+  results_dir: results/isic2019_binary

@@ -1,0 +1,24 @@
+seed: 0
+data:
+  name: medmnist:pathmnist
+partition:
+  strategy: iid
+  num_clients: 10
+model:
+  hidden_dim: 64
+  lr: 0.01
+  batch_size: 16
+  local_epochs: 3
+attack:
+  name: none
+  malicious_fraction: 0.0
+reputation:
+  beta: 0.8
+  trust_threshold: 0.30
+  threshold_mode: absolute
+dp:
+  enabled: false
+simulation:
+  num_rounds: 30
+  aggregator: fedavg
+  results_dir: results/medmnist_debug

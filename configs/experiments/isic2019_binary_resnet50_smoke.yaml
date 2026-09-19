@@ -1,0 +1,39 @@
+# Timing probe: ResNet-50 on the binary malignant/benign task, against the
+# real Dataset_large/ files. Purpose is ONLY to measure real per-round
+# wall-clock time on this machine's MPS backend before committing to a full
+# 20-round run -- ResNet-50 is a new backbone+task combination we haven't
+# timed here (EfficientNet-B0's depthwise convs turned out much slower on MPS
+# than ResNet-18's plain convs despite fewer params, so guessing from param
+# count alone is unreliable).
+seed: 0
+device: auto
+data:
+  root: Dataset_large
+  image_size: 224          # keep full size -- want a realistic per-round time, not a scaled-down one
+  val_fraction: 0.2
+  max_samples: 300
+  binary: true
+partition:
+  strategy: dirichlet
+  alpha: 0.5
+  num_clients: 3
+model:
+  model_name: resnet50
+  pretrained: true
+  optimizer: adam
+  lr: 0.0001
+  batch_size: 32
+  local_epochs: 1
+  num_workers: 2
+  balanced_loss: true
+attack:
+  name: none
+reputation:
+  beta: 0.8
+  threshold_mode: relative
+dp:
+  enabled: false
+simulation:
+  num_rounds: 2
+  aggregator: reputation
+  results_dir: results/isic2019_binary_resnet50_smoke
