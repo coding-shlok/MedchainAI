@@ -1,0 +1,112 @@
+{
+  "hospital_00": {
+    "num_samples": 389,
+    "class_counts": [
+      277,
+      2,
+      6,
+      104
+    ],
+    "label_entropy": 0.6859280482429095,
+    "max_class_share": 0.712082262210797
+  },
+  "hospital_01": {
+    "num_samples": 259,
+    "class_counts": [
+      4,
+      3,
+      252,
+      0
+    ],
+    "label_entropy": 0.14270781319234635,
+    "max_class_share": 0.972972972972973
+  },
+  "hospital_02": {
+    "num_samples": 247,
+    "class_counts": [
+      53,
+      20,
+      169,
+      5
+    ],
+    "label_entropy": 0.8723835217554581,
+    "max_class_share": 0.6842105263157895
+  },
+  "hospital_03": {
+    "num_samples": 502,
+    "class_counts": [
+      33,
+      265,
+      113,
+      91
+    ],
+    "label_entropy": 1.1614363905637002,
+    "max_class_share": 0.5278884462151394
+  },
+  "hospital_04": {
+    "num_samples": 24,
+    "class_counts": [
+      4,
+      0,
+      9,
+      11
+    ],
+    "label_entropy": 1.0240102202942951,
+    "max_class_share": 0.4583333333333333
+  },
+  "hospital_05": {
+    "num_samples": 169,
+    "class_counts": [
+      109,
+      10,
+      44,
+      6
+    ],
+    "label_entropy": 0.9190249232030206,
+    "max_class_share": 0.6449704142011834
+  },
+  "hospital_06": {
+    "num_samples": 50,
+    "class_counts": [
+      31,
+      10,
+      2,
+      7
+    ],
+    "label_entropy": 1.0222806119584047,
+    "max_class_share": 0.62
+  },
+  "hospital_07": {
+    "num_samples": 50,
+    "class_counts": [
+      5,
+      0,
+      6,
+      39
+    ],
+    "label_entropy": 0.6784899938962452,
+    "max_class_share": 0.78
+  },
+  "hospital_08": {
+    "num_samples": 223,
+    "class_counts": [
+      12,
+      32,
+      7,
+      172
+    ],
+    "label_entropy": 0.7447823107320992,
+    "max_class_share": 0.7713004484304933
+  },
+  "hospital_09": {
+    "num_samples": 487,
+    "class_counts": [
+      34,
+      252,
+      11,
+      190
+    ],
+    "label_entropy": 0.9795910027517837,
+    "max_class_share": 0.5174537987679672
+  }
+}

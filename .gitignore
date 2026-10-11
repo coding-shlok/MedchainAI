@@ -64,7 +64,10 @@ cache/
 scratch/
 
 # Data (if large)
-data/
+/data/
 Dataset_large/
 *.zip
 *.tar.gz
+
+# Model blobs written by runs (regenerable)
+results/**/cas/

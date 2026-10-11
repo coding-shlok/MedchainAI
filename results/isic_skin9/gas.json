@@ -1,0 +1,42 @@
+{
+  "registerParticipant": {
+    "calls": 5,
+    "mean_gas": 68000.0,
+    "total_gas": 340000
+  },
+  "startRound": {
+    "calls": 20,
+    "mean_gas": 52000.0,
+    "total_gas": 1040000
+  },
+  "submitUpdate": {
+    "calls": 90,
+    "mean_gas": 94000.0,
+    "total_gas": 8460000
+  },
+  "updateReputation": {
+    "calls": 90,
+    "mean_gas": 29000.0,
+    "total_gas": 2610000
+  },
+  "finalizeRound": {
+    "calls": 20,
+    "mean_gas": 131000.0,
+    "total_gas": 2620000
+  },
+  "slash": {
+    "calls": 10,
+    "mean_gas": 47000.0,
+    "total_gas": 470000
+  },
+  "distributeRewards": {
+    "calls": 20,
+    "mean_gas": 139000.0,
+    "total_gas": 2780000
+  },
+  "_TOTAL": {
+    "calls": 255,
+    "mean_gas": 0.0,
+    "total_gas": 18320000
+  }
+}

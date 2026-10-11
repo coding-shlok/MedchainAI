@@ -1,0 +1,35 @@
+[
+  {
+    "round_index": 0,
+    "accuracy": 0.13559322033898305,
+    "macro_f1": 0.0448107448107448,
+    "loss": 2.2402278609194997,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.48348438944215033,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 1,
+    "false_positives": 1
+  },
+  {
+    "round_index": 1,
+    "accuracy": 0.13559322033898305,
+    "macro_f1": 0.02799650043744532,
+    "loss": 2.238284660597979,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.49425060868037435,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 0,
+    "false_positives": 0
+  },
+  {
+    "round_index": 2,
+    "accuracy": 0.13559322033898305,
+    "macro_f1": 0.028444444444444446,
+    "loss": 2.2343009932566495,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.496994316249099,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 0,
+    "false_positives": 0
+  }
+]

@@ -1,0 +1,50 @@
+{
+  "hospital_00": {
+    "num_samples": 788,
+    "class_counts": [
+      31,
+      102,
+      33,
+      115,
+      163,
+      184,
+      39,
+      72,
+      49
+    ],
+    "label_entropy": 2.011401267406875,
+    "max_class_share": 0.233502538071066
+  },
+  "hospital_01": {
+    "num_samples": 797,
+    "class_counts": [
+      40,
+      110,
+      45,
+      239,
+      122,
+      116,
+      18,
+      65,
+      42
+    ],
+    "label_entropy": 1.9598588981979148,
+    "max_class_share": 0.2998745294855709
+  },
+  "hospital_02": {
+    "num_samples": 654,
+    "class_counts": [
+      43,
+      164,
+      17,
+      84,
+      72,
+      162,
+      20,
+      44,
+      48
+    ],
+    "label_entropy": 1.9528166146779171,
+    "max_class_share": 0.25076452599388377
+  }
+}

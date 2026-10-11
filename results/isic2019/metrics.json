@@ -1,0 +1,222 @@
+[
+  {
+    "round_index": 0,
+    "accuracy": 0.663245163837347,
+    "macro_f1": 0.41133507683977916,
+    "loss": 0.998428118450106,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.47759136334709423,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 2,
+    "false_positives": 2
+  },
+  {
+    "round_index": 1,
+    "accuracy": 0.6792341097512831,
+    "macro_f1": 0.44942492365781567,
+    "loss": 0.9304344187223342,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.47184897880046217,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 2,
+    "false_positives": 2
+  },
+  {
+    "round_index": 2,
+    "accuracy": 0.6916699565732333,
+    "macro_f1": 0.4777953512255605,
+    "loss": 0.9311693278970429,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.46726544604060294,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 2,
+    "false_positives": 2
+  },
+  {
+    "round_index": 3,
+    "accuracy": 0.6985787603632057,
+    "macro_f1": 0.4872030034326876,
+    "loss": 1.0097924976823267,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.46447826121329266,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 2,
+    "false_positives": 2
+  },
+  {
+    "round_index": 4,
+    "accuracy": 0.696999605211212,
+    "macro_f1": 0.48473876977639974,
+    "loss": 1.1519932893722178,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.4607378179120751,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 2,
+    "false_positives": 2
+  },
+  {
+    "round_index": 5,
+    "accuracy": 0.7048953809711804,
+    "macro_f1": 0.49543254861848707,
+    "loss": 1.198610938964886,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.45851253874019593,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 2,
+    "false_positives": 2
+  },
+  {
+    "round_index": 6,
+    "accuracy": 0.7066719305171734,
+    "macro_f1": 0.48766341892603515,
+    "loss": 1.2527789785322634,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.45237854691305224,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 2,
+    "false_positives": 2
+  },
+  {
+    "round_index": 7,
+    "accuracy": 0.7013422818791947,
+    "macro_f1": 0.4903636465795649,
+    "loss": 1.3011954641135088,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.44355832844186677,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 2,
+    "false_positives": 2
+  },
+  {
+    "round_index": 8,
+    "accuracy": 0.7161468614291354,
+    "macro_f1": 0.48602814829024804,
+    "loss": 1.3768791421994926,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.4409882479183402,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 2,
+    "false_positives": 2
+  },
+  {
+    "round_index": 9,
+    "accuracy": 0.7137781287011449,
+    "macro_f1": 0.4780472838657747,
+    "loss": 1.414274407901455,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.43537909289192067,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 2,
+    "false_positives": 2
+  },
+  {
+    "round_index": 10,
+    "accuracy": 0.700750098697197,
+    "macro_f1": 0.500448242353183,
+    "loss": 1.4808447226393708,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.5918955648623686,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 0,
+    "false_positives": 0
+  },
+  {
+    "round_index": 11,
+    "accuracy": 0.7177260165811291,
+    "macro_f1": 0.4927675865071548,
+    "loss": 1.404275301742403,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.5833378211618924,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 0,
+    "false_positives": 0
+  },
+  {
+    "round_index": 12,
+    "accuracy": 0.7121989735491512,
+    "macro_f1": 0.48871589563800427,
+    "loss": 1.5541083868247363,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.570942577170155,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 0,
+    "false_positives": 0
+  },
+  {
+    "round_index": 13,
+    "accuracy": 0.7135807343071456,
+    "macro_f1": 0.4913250845248017,
+    "loss": 1.593951463605216,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.5472868727609053,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 0,
+    "false_positives": 0
+  },
+  {
+    "round_index": 14,
+    "accuracy": 0.7137781287011449,
+    "macro_f1": 0.5010403378864964,
+    "loss": 1.5381830861527976,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.5449822061053902,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 0,
+    "false_positives": 0
+  },
+  {
+    "round_index": 15,
+    "accuracy": 0.7112120015791552,
+    "macro_f1": 0.48738558351336925,
+    "loss": 1.561551133775918,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.5412283598623807,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 0,
+    "false_positives": 0
+  },
+  {
+    "round_index": 16,
+    "accuracy": 0.716739044611133,
+    "macro_f1": 0.4995518838468037,
+    "loss": 1.6815219520345959,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.5407549848055823,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 0,
+    "false_positives": 0
+  },
+  {
+    "round_index": 17,
+    "accuracy": 0.7062771417291749,
+    "macro_f1": 0.4728169858043404,
+    "loss": 1.671677671493488,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.5431006265988213,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 0,
+    "false_positives": 0
+  },
+  {
+    "round_index": 18,
+    "accuracy": 0.7159494670351362,
+    "macro_f1": 0.4934924143512478,
+    "loss": 1.6445715808604857,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.5433687236032342,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 0,
+    "false_positives": 0
+  },
+  {
+    "round_index": 19,
+    "accuracy": 0.7145677062771417,
+    "macro_f1": 0.498134899410355,
+    "loss": 1.7497592226488525,
+    "backdoor_asr": 0.0,
+    "mean_reputation_honest": 0.5376786169324258,
+    "mean_reputation_malicious": 0.0,
+    "num_rejected": 0,
+    "false_positives": 0
+  }
+]

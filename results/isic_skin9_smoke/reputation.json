@@ -1,0 +1,88 @@
+{
+  "config": {
+    "beta": 0.8,
+    "alpha_cos": 0.7,
+    "initial": 0.5,
+    "trust_threshold": 0.15,
+    "threshold_mode": "relative",
+    "relative_k": 1.5,
+    "use_robust_z": true,
+    "z_scale": 2.0
+  },
+  "reputation": {
+    "hospital_00": 0.46096020430613066,
+    "hospital_01": 0.5907029106812363,
+    "hospital_02": 0.4393198337599301
+  },
+  "history": [
+    {
+      "round": 0,
+      "cosine": {
+        "hospital_00": 0.08948281850827901,
+        "hospital_01": 0.831526201945654,
+        "hospital_02": 0.7903743803431902
+      },
+      "norm_ratio": {
+        "hospital_00": 0.7858008004381115,
+        "hospital_01": 1.0,
+        "hospital_02": 1.4578637239528012
+      },
+      "score": {
+        "hospital_00": 0.016650884524140225,
+        "hospital_01": 0.6858666202484351,
+        "hospital_02": 0.5497483368596794
+      },
+      "reputation_after": {
+        "hospital_00": 0.4033301769048281,
+        "hospital_01": 0.537173324049687,
+        "hospital_02": 0.5099496673719359
+      }
+    },
+    {
+      "round": 1,
+      "cosine": {
+        "hospital_00": 0.3450331544268505,
+        "hospital_01": 0.41836609244277007,
+        "hospital_02": 0.08957099195858646
+      },
+      "norm_ratio": {
+        "hospital_00": 1.3180775844852237,
+        "hospital_01": 1.0,
+        "hospital_02": 0.9595867156584642
+      },
+      "score": {
+        "hospital_00": 0.5666262768513844,
+        "hospital_01": 0.6858666202484351,
+        "hospital_02": 0.35945355979999066
+      },
+      "reputation_after": {
+        "hospital_00": 0.43598939689413935,
+        "hospital_01": 0.5669119832894366,
+        "hospital_02": 0.4798504458575469
+      }
+    },
+    {
+      "round": 2,
+      "cosine": {
+        "hospital_00": 0.2928602846080745,
+        "hospital_01": 0.387833898937969,
+        "hospital_02": -0.16078102891329368
+      },
+      "norm_ratio": {
+        "hospital_00": 1.363927264607188,
+        "hospital_01": 1.0,
+        "hospital_02": 0.9109844625624353
+      },
+      "score": {
+        "hospital_00": 0.560843433954096,
+        "hospital_01": 0.6858666202484351,
+        "hospital_02": 0.2771973853694628
+      },
+      "reputation_after": {
+        "hospital_00": 0.46096020430613066,
+        "hospital_01": 0.5907029106812363,
+        "hospital_02": 0.4393198337599301
+      }
+    }
+  ]
+}
